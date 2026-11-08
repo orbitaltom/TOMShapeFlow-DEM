@@ -1,0 +1,14 @@
+# DEM solver (Chrono DEM-Engine, Python package `deme`), installed separately with CUDA 12:
+#   pip install "deme[cuda12]==3.0.19"
+# Tested with Python 3.12.3 on WSL2 (Ubuntu 24.04), NVIDIA RTX 3500 Ada (12 GB), and the versions noted below.
+numpy>=1.22          # tested 2.5.4
+scipy>=1.9           # tested 1.18.1
+matplotlib>=3.5      # tested 3.11.2
+scikit-image>=0.19   # tested 0.26.0; template generation (scripts/08_repose_grid_shapes.py)
+# Design chart only (scripts/11_design_chart.py):
+pandas>=2.0          # tested 3.1.1
+pillow>=9.0          # tested 13.0.0 (also installed with matplotlib)
+# Rendering only (scripts/10_repose_grid_media.py: heap stills, videos, montage, gallery):
+pyvista>=0.43        # tested 0.49.2 (off-screen, VTK 9.7.1)
+imageio>=2.30        # tested 2.38.1
+imageio-ffmpeg>=0.4  # tested 0.8.1 (bundled ffmpeg with libx264)

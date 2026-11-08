@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "kind": "repose",
+  "level": "R100_A06",
+  "mu": 0.6,
+  "Crr": 0.22,
+  "seed": 1,
+  "gravity": "earth",
+  "run_id": "R100_A06_earth_s1",
+  "shape": "R100_A06",
+  "study": "repose_grid"
+ },
+ "summary": {
+  "angle_of_repose_deg": 37.95254537822649,
+  "n_grains": 8749,
+  "floor_layer_grains": 1250,
+  "time_scale": 1.0,
+  "floor_top_m": 0.0035740817654877906,
+  "simulated_s": 1.0000000000000002,
+  "target_deg": 40,
+  "wall_clock_s": 405.4,
+  "host": "TJLAL-24"
+ }
+}

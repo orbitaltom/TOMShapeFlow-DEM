@@ -1,0 +1,153 @@
+{
+  "_about": "TOM shape-flow DEM study (ESRIC question: does particle shape improve flowability?). SI units: m, kg, s, Pa. Edit values here, not in the scripts.",
+
+  "particles": {
+    "d_nominal_m": 0.002,
+    "d_min_m": 0.0018,
+    "d_max_m": 0.0022,
+    "density_kg_m3": 3100,
+    "bulk_density_kg_m3": 1800,
+    "E_Pa": 1.0e7,
+    "nu": 0.3,
+    "CoR": 0.5,
+    "mu": 0.6,
+    "Crr": 0.22,
+    "_note_Crr": "Rolling resistance, applied to grain-grain and grain-6061 pairs; grain-slice is 0. Same value for every level (no per-level tuning); deviations from 42 - 17R are reported as model error. Calibration on the rough-floor slump test, L0, mu 0.6: Crr 0.25 gave 40.35 deg (seed 1). 2026-11-05: 3-seed L0 mean 41.54 +- 0.67 deg (SE) at Crr 0.25; Crr set to 0.22 by interpolation to 40 deg (slope ~0.44 deg per 0.01 Crr). See results/methods_log.md.",
+    "_note_mu": "Fixed at 0.6 (2026-11-04). The L0 angle of repose is calibrated with Crr (rolling resistance) instead; mu alone gave 28 deg at 0.6 on the rough-floor slump test."
+  },
+
+  "walls": {
+    "_material": "6061-T6 aluminum",
+    "E_Pa": 6.89e10,
+    "nu": 0.33,
+    "CoR": 0.5,
+    "mu_particle_wall": 0.35,
+    "_note_mu_particle_wall": "Estimate, smooth 6061 vs 2 mm angular grains, ~19 deg. Brackets 0.25 and 0.50. Replace with tilt test.",
+    "mu_slice_walls": 0.0
+  },
+
+  "levels": {
+    "L0": 0.12,
+    "L1": 0.30,
+    "L2": 0.50,
+    "L3": 0.70,
+    "L4": 0.85,
+    "L5": 1.00
+  },
+
+  "shapes": {
+    "n_templates_per_level": 8,
+    "seed": 2026,
+    "max_spheres_per_clump": 60,
+    "surface_tolerance_fraction": 0.03,
+    "surface_coverage": 0.97,
+    "templates_dir": "shapes/templates"
+  },
+
+  "gravity_m_s2": {
+    "lunar": 1.62,
+    "earth": 9.81
+  },
+
+  "solver": {
+    "device": 0,
+    "time_step_s": 5.0e-6,
+    "max_velocity_m_s": 6.0,
+    "sync_interval_s": 0.05,
+    "verbosity": "ERROR"
+  },
+
+  "cohesion": {
+    "_model": "DEME packaged ForceModelWithCohesion.cu: extra pull = C x effective mass while grains touch. For two equal grains Bo = C / (2 g).",
+    "bond_numbers": [0.9, 1.9],
+    "_note_multiplicity": "DEME applies the pull per touching sphere pair, so C is divided by the mean number of sphere pairs per touching grain pair. Every non-cohesive hopper run measures it after the fill; Phase D reads it from those runs, or from sphere_pairs_per_contact below if you fill it in.",
+    "sphere_pairs_per_contact": {}
+  },
+
+  "chute": {
+    "_frame": "x down the slope along the floor, y across, z normal to the floor (floor at z = 0). The angle is set by tilting gravity.",
+    "length_m": 0.3592,
+    "width_m": 0.0508,
+    "wall_height_m": 0.0762,
+    "angles_deg": [15, 20, 25, 30, 35, 40, 45],
+    "feed_rate_kg_s": 0.030,
+    "feed_x_m": [0.004, 0.044],
+    "feed_insert_height_m": 0.040,
+    "feed_interval_s": 0.025,
+    "feed_insert_speed_m_s": 0.4,
+    "run_time_s": 6.0,
+    "score_window_s": [3.0, 6.0],
+    "flow_fraction_threshold": 0.9,
+    "feed_fraction_min": 0.95,
+    "_note_feed_fraction_min": "A run only scores as flowing if the delivered feed over the score window is at least this fraction of feed_rate_kg_s.",
+    "blocked_time_to_stop_s": 1.0,
+    "station_fraction": 0.6,
+    "station_window_m": 0.02,
+    "tray_drop_m": 0.10,
+    "tray_length_m": 0.25,
+    "freeze_speed_m_s": 0.02,
+    "floor_mesh_cell_m": 0.01
+  },
+
+  "hopper": {
+    "_frame": "x across the hopper, y through the slice (0 to slice_m), z up; slot outlet at z = 0, centred on x = 0.",
+    "top_width_m": 0.2032,
+    "slice_m": 0.020,
+    "wall_angle_from_vertical_deg": 30,
+    "optional_wall_angles_deg": [15, 45],
+    "nominal_wall_height_m": 0.4064,
+    "outlet_multiples_of_d": [4, 5, 6, 8],
+    "base_outlet_multiple": 6,
+    "n_particles": 60000,
+    "quick_n_particles": 20000,
+    "fill_gravity": "earth",
+    "fill_stage_height_m": 0.25,
+    "fill_stage_settle_s": 0.3,
+    "fill_settle_max_s": 4.0,
+    "fill_settle_rms_speed_m_s": 0.02,
+    "relax_time_s": 0.5,
+    "_note_times": "Flow-run times and windows are for lunar gravity; other gravities scale them by sqrt(1.62 / g).",
+    "flow_run_time_s": 10.0,
+    "flow_window_s": [2.0, 10.0],
+    "clog_window_s": 2.0,
+    "clog_max_events": 10,
+    "clog_run_time_s": 30.0,
+    "arch_box_halfwidth_multiple_of_D": 1.0,
+    "arch_box_height_multiple_of_D": 1.0,
+    "measure_plane_multiple_of_D": 3.0,
+    "catch_depth_m": 0.25,
+    "catch_halfwidth_m": 0.30,
+    "freeze_speed_m_s": 0.02,
+    "snapshot_time_s": 5.0,
+    "wall_mesh_cell_m": 0.01
+  },
+
+  "repose": {
+    "_test": "Slump test in a 20 mm slice at 1 g on a rough floor (one fixed layer of same-level grains): a column (aspect 0.5) collapses when its gate is removed; the slope of the heap above the layer is the angle of repose.",
+    "column_width_m": 0.08,
+    "column_height_m": 0.04,
+    "floor_length_m": 0.25,
+    "slice_m": 0.020,
+    "gravity": "earth",
+    "run_time_s": 3.0,
+    "target_angle_deg": 40,
+    "_note_target": "Set to the measured angle of repose of the SRT simulant batch."
+  },
+
+  "phases": {
+    "knee_level": null,
+    "_note_knee": "Set after Phase A (07_postprocess.py suggests one). Phases D and E use L0, the knee level and L5.",
+    "A": {"kind": "hopper", "mode": "flow", "levels": "all", "outlets": [6], "gravity": "lunar", "bond": [0.0], "seeds": [1, 2, 3]},
+    "B": {"kind": "chute", "levels": ["L0", "L2", "L4", "L5"], "angles": [15, 20, 25, 35], "gravity": "lunar", "seeds": [1]},
+    "C": {"kind": "hopper", "mode": "clog", "levels": "all", "outlets": [4, 5, 6, 8], "gravity": "lunar", "bond": [0.0], "seeds": [1, 2]},
+    "D": {"kind": "hopper", "mode": "flow", "levels": "knee", "outlets": [6], "gravity": "lunar", "bond": [0.9, 1.9], "seeds": [1, 2, 3]},
+    "E": {"kind": "hopper", "mode": "flow", "levels": "knee", "outlets": [6], "gravity": "earth", "bond": [0.0], "seeds": [1, 2, 3]}
+  },
+
+  "decision_rule": {
+    "gain_target": 0.8,
+    "gain_floor": 0.2,
+    "clog_free_outlet_multiple": 5,
+    "chute_design_angle_deg": 35
+  }
+}

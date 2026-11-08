@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it using the metadata below."
+type: software
+title: "TOMShapeFlow-DEM: particle shape and angle of repose, a DEM study for lunar regolith handling"
+abstract: >-
+  Discrete-element (Chrono DEM-Engine) study of how grain shape sets the angle of repose of a granular
+  material relevant to lunar regolith handling. Twelve multi-sphere grain shapes (Wadell roundness
+  0.13 to 1.0 by aspect ratio 0.6 to 1.0, 2 mm grains) are tested in a rough-floor slump test,
+  calibrated by rolling resistance to a 40 deg angle of repose (lunar highland simulant LHS-1: 39.6
+  deg), with a lunar-gravity subset. Includes the simulation code, the clump templates, per-run
+  results, a fitted design surface (angle = 46.0 - 4.3 R - 10.7 A, leave-one-out RMSE 1.6 deg) and the
+  methods log. Code under MIT; shape templates and results under CC BY 4.0.
+authors:
+  - family-names: Torres
+    given-names: Luis
+    affiliation: "Torres Orbital Mining Inc."
+    orcid: "https://orcid.org/0009-0003-2626-6325"
+keywords:
+  - lunar regolith
+  - ISRU
+  - DEM
+  - particle shape
+  - angle of repose
+license: MIT
+repository-code: "https://github.com/orbitaltom/TOMShapeFlow-DEM"

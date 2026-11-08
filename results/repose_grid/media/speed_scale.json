@@ -1,0 +1,20 @@
+{
+ "vmax_m_s": 0.35,
+ "p95_raw_m_s": 0.31986257433891296,
+ "runs": [
+  "R013_A06_earth_s1",
+  "R045_A06_earth_dt2.5e-06_s1",
+  "R080_A06_earth_s1",
+  "R100_A06_earth_s1",
+  "R013_A08_earth_s1",
+  "R045_A08_earth_s1",
+  "R080_A08_earth_s1",
+  "R100_A08_earth_s1",
+  "R013_A10_earth_s1",
+  "R045_A10_earth_s1",
+  "R080_A10_earth_s1",
+  "R100_A10_earth_s1",
+  "L0_earth_s1"
+ ],
+ "definition": "95th percentile of per-grain peak speed during the slump, pooled over the listed seed-1 runs, rounded up to 0.05 m/s"
+}

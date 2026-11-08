@@ -1,0 +1,86 @@
+{
+ "meta": {
+  "kind": "repose",
+  "level": "L0",
+  "mu": 0.6,
+  "Crr": 0.22,
+  "seed": 2,
+  "gravity": "earth",
+  "run_id": "L0_earth_s2",
+  "shape": "L0",
+  "study": "repose_grid",
+  "time_step_s": 5e-06
+ },
+ "summary": {
+  "angle_of_repose_deg": 39.722103272256,
+  "n_grains": 8749,
+  "floor_layer_grains": 1250,
+  "time_scale": 1.0,
+  "settle_log": [
+   {
+    "phase": "floor",
+    "sim_s": 0.15,
+    "rms_m_s": 0.009619691409678374,
+    "target_m_s": 0.01,
+    "cap_s": 1.0,
+    "reached": true
+   },
+   {
+    "phase": "fill stage 1",
+    "sim_s": 0.2,
+    "rms_m_s": 0.010840021403465185,
+    "target_m_s": 0.05,
+    "cap_s": 0.6,
+    "reached": true
+   },
+   {
+    "phase": "fill stage 2",
+    "sim_s": 0.2,
+    "rms_m_s": 0.00888829223256168,
+    "target_m_s": 0.05,
+    "cap_s": 0.6,
+    "reached": true
+   },
+   {
+    "phase": "fill stage 3",
+    "sim_s": 0.2,
+    "rms_m_s": 0.00458828127628033,
+    "target_m_s": 0.05,
+    "cap_s": 0.6,
+    "reached": true
+   },
+   {
+    "phase": "fill stage 4",
+    "sim_s": 0.2,
+    "rms_m_s": 0.005200022861621056,
+    "target_m_s": 0.05,
+    "cap_s": 0.6,
+    "reached": true
+   },
+   {
+    "phase": "fill stage 5",
+    "sim_s": 0.2,
+    "rms_m_s": 0.004849072512064716,
+    "target_m_s": 0.05,
+    "cap_s": 0.6,
+    "reached": true
+   },
+   {
+    "phase": "final settle",
+    "sim_s": 0.3,
+    "rms_m_s": 0.0005526155089636365,
+    "target_m_s": 0.01,
+    "cap_s": 3.0,
+    "reached": true
+   }
+  ],
+  "rms_at_gate_m_s": 0.0005526155089636365,
+  "fill_stages_timed_out": 0,
+  "final_settle_timed_out": false,
+  "floor_top_m": 0.0034452991085127,
+  "simulated_s": 1.0000000000000002,
+  "target_deg": 40,
+  "wall_clock_s": 2899.6,
+  "host": "TJLAL-24"
+ }
+}

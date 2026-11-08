@@ -1,0 +1,17 @@
+# Large data: separate Zenodo upload (see README, "Data bundle")
+data/large/
+frames/
+heap.csv
+timeseries.csv
+progress.csv
+*.mp4
+*.npz
+# Local run output and logs
+results/repose_grid/logs/
+results/repose_grid/queue_status.json
+results/repose_grid/media/heap_*.png
+*.log
+# Python
+__pycache__/
+*.pyc
+.venv/
