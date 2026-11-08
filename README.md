@@ -1,8 +1,8 @@
 # TOMShapeFlow-DEM: particle shape and angle of repose
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057445.svg)](https://doi.org/10.5281/zenodo.24057445)
 [![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057309.svg)](https://doi.org/10.5281/zenodo.24057309)
-<!-- Software DOI placeholder: replace XXXXXXX after the first Zenodo release. The second badge is the data archive. -->
+<!-- First badge: software, concept DOI (all versions; v1.0.0 is 10.5281/zenodo.24057446). Second badge: data archive. -->
 
 Discrete-element (DEM) study of how grain shape (roundness and aspect ratio) sets the angle of repose of a
 granular material, for handling lunar regolith in ISRU systems. The question behind it is how much a preprocessing
@@ -205,7 +205,7 @@ paths inside the zips are relative to that folder. The frames are needed to re-r
 Please cite the archived release (DOI above) and see `CITATION.cff`:
 
 > Torres, L. (2026). *TOMShapeFlow-DEM: particle shape and angle of repose, a DEM study for lunar regolith
-> handling.* Torres Orbital Mining Inc. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> handling.* Torres Orbital Mining Inc. Zenodo. https://doi.org/10.5281/zenodo.24057445
 
 If you use the frames, heap states, videos or logs, please also cite the data archive:
 

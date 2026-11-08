@@ -28,6 +28,9 @@ META = {
     "keywords": ["lunar regolith", "ISRU", "DEM", "particle shape", "angle of repose"],
     "license": "MIT",
     "repository": "https://github.com/orbitaltom/TOMShapeFlow-DEM",
+    # Concept DOI of the software record (always resolves to the latest version). CITATION.cff only: Zenodo assigns
+    # the software DOI itself, so it cannot be in .zenodo.json.
+    "software_doi": "10.5281/zenodo.24057445",
     # Data archive (separate Zenodo dataset, CC BY 4.0), cited as a reference / linked as a supplement.
     "dataset_title": "TOMShapeFlow-DEM data: slump frames, heap states, videos and logs of the repose shape study",
     "dataset_doi": "10.5281/zenodo.24057309",
@@ -48,6 +51,7 @@ def cff(m):
             f'    affiliation: "{m["affiliation"]}"\n'
             f'    orcid: "https://orcid.org/{m["orcid"]}"\n'
             f'keywords:\n{kw}'
+            f'doi: {m["software_doi"]}\n'
             f'license: {m["license"]}\n'
             f'repository-code: "{m["repository"]}"\n'
             f'references:\n'
@@ -82,7 +86,9 @@ def check(cff_text, z):
     c = {"title": get("title"), "abstract": " ".join(line.strip() for line in lines[a0:a1]),
          "name": f'{get("- family-names")}, {get("given-names")}', "affiliation": get("affiliation"),
          "orcid": get("orcid").rsplit("/", 1)[1], "keywords": [line[4:] for line in lines[k0:k1]],
-         "license": get("license"), "dataset_doi": get("doi")}
+         "license": get("license"),
+         "dataset_doi": next(line.split(": ", 1)[1] for line in lines[lines.index("references:"):]
+                             if line.strip().startswith("doi:"))}
     cr = z["creators"][0]
     zz = {"title": z["title"], "abstract": z["description"], "name": cr["name"], "affiliation": cr["affiliation"],
           "orcid": cr["orcid"], "keywords": z["keywords"], "license": z["license"],

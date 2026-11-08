@@ -21,6 +21,7 @@ keywords:
   - DEM
   - particle shape
   - angle of repose
+doi: 10.5281/zenodo.24057445
 license: MIT
 repository-code: "https://github.com/orbitaltom/TOMShapeFlow-DEM"
 references:
