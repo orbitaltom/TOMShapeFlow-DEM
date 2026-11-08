@@ -1,7 +1,8 @@
 # TOMShapeFlow-DEM: particle shape and angle of repose
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-<!-- DOI placeholder: replace XXXXXXX after the first Zenodo release. -->
+[![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057309.svg)](https://doi.org/10.5281/zenodo.24057309)
+<!-- Software DOI placeholder: replace XXXXXXX after the first Zenodo release. The second badge is the data archive. -->
 
 Discrete-element (DEM) study of how grain shape (roundness and aspect ratio) sets the angle of repose of a
 granular material, for handling lunar regolith in ISRU systems. The question behind it is how much a preprocessing
@@ -183,11 +184,11 @@ tools/                citation_metadata.py: writes CITATION.cff and .zenodo.json
 Run folders are named `<shape>_<gravity>[_dt2.5e-06]_s<seed>`. A `_dt2.5e-06` suffix means that run used the
 2.5e-6 s time step.
 
-## Data bundle (separate Zenodo upload)
+## Data bundle (separate Zenodo dataset)
 
-Data archive (CC BY 4.0): Zenodo DOI to follow.
+Data archive (CC BY 4.0): https://doi.org/10.5281/zenodo.24057309
 
-These files are not in git:
+These files are not in git; download them from the data archive:
 
 | File | Contents | Size |
 |---|---|---|
@@ -205,6 +206,11 @@ Please cite the archived release (DOI above) and see `CITATION.cff`:
 
 > Torres, L. (2026). *TOMShapeFlow-DEM: particle shape and angle of repose, a DEM study for lunar regolith
 > handling.* Torres Orbital Mining Inc. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+
+If you use the frames, heap states, videos or logs, please also cite the data archive:
+
+> Torres, L. (2026). *TOMShapeFlow-DEM data: slump frames, heap states, videos and logs of the repose shape
+> study.* Torres Orbital Mining Inc. Zenodo. https://doi.org/10.5281/zenodo.24057309
 
 ## License
 

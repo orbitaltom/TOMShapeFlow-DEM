@@ -23,3 +23,11 @@ keywords:
   - angle of repose
 license: MIT
 repository-code: "https://github.com/orbitaltom/TOMShapeFlow-DEM"
+references:
+  - type: dataset
+    title: "TOMShapeFlow-DEM data: slump frames, heap states, videos and logs of the repose shape study"
+    authors:
+      - family-names: Torres
+        given-names: Luis
+    doi: 10.5281/zenodo.24057309
+    license: CC-BY-4.0

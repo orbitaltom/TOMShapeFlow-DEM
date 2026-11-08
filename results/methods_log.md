@@ -7,7 +7,7 @@ Release note (2026-11-08): this is the study's working log, unedited except for 
 Paths are relative to the repository. In this repository the grid templates and shapes_summary.csv are in
 shapes/repose_grid/ (results/repose_grid/templates/ during the study). Files the log mentions that are not in git
 (slump frames, raw heap.csv, run logs, guard.csv, progress.csv, gpu_clock.csv, queue_status.json, videos) are in the
-data bundle (data/large/*.zip, Zenodo). Entries about chute and hopper work refer to later phases of the study that
+data archive (Zenodo, https://doi.org/10.5281/zenodo.24057309). Entries about chute and hopper work refer to later phases of the study that
 are not part of this release. The L0 templates (the calibration anchor) are in shapes/templates/; the L1-L5
 templates, the L0-L5 calibration-level results and results/repose_archive_flatfloor/ are not included.
 

@@ -28,6 +28,9 @@ META = {
     "keywords": ["lunar regolith", "ISRU", "DEM", "particle shape", "angle of repose"],
     "license": "MIT",
     "repository": "https://github.com/orbitaltom/TOMShapeFlow-DEM",
+    # Data archive (separate Zenodo dataset, CC BY 4.0), cited as a reference / linked as a supplement.
+    "dataset_title": "TOMShapeFlow-DEM data: slump frames, heap states, videos and logs of the repose shape study",
+    "dataset_doi": "10.5281/zenodo.24057309",
 }
 
 
@@ -46,7 +49,15 @@ def cff(m):
             f'    orcid: "https://orcid.org/{m["orcid"]}"\n'
             f'keywords:\n{kw}'
             f'license: {m["license"]}\n'
-            f'repository-code: "{m["repository"]}"\n')
+            f'repository-code: "{m["repository"]}"\n'
+            f'references:\n'
+            f'  - type: dataset\n'
+            f'    title: "{m["dataset_title"]}"\n'
+            f'    authors:\n'
+            f'      - family-names: {m["family_names"]}\n'
+            f'        given-names: {m["given_names"]}\n'
+            f'    doi: {m["dataset_doi"]}\n'
+            f'    license: CC-BY-4.0\n')
 
 
 def zenodo(m):
@@ -54,7 +65,10 @@ def zenodo(m):
             "creators": [{"name": f'{m["family_names"]}, {m["given_names"]}', "affiliation": m["affiliation"],
                           "orcid": m["orcid"]}],
             "keywords": m["keywords"], "license": m["license"],
-            "related_identifiers": [{"identifier": m["repository"], "relation": "isSupplementTo", "scheme": "url"}]}
+            "related_identifiers": [
+                {"identifier": m["repository"], "relation": "isSupplementTo", "scheme": "url"},
+                {"identifier": m["dataset_doi"], "relation": "isSupplementedBy", "resource_type": "dataset",
+                 "scheme": "doi"}]}
 
 
 def check(cff_text, z):
@@ -68,10 +82,11 @@ def check(cff_text, z):
     c = {"title": get("title"), "abstract": " ".join(line.strip() for line in lines[a0:a1]),
          "name": f'{get("- family-names")}, {get("given-names")}', "affiliation": get("affiliation"),
          "orcid": get("orcid").rsplit("/", 1)[1], "keywords": [line[4:] for line in lines[k0:k1]],
-         "license": get("license")}
+         "license": get("license"), "dataset_doi": get("doi")}
     cr = z["creators"][0]
     zz = {"title": z["title"], "abstract": z["description"], "name": cr["name"], "affiliation": cr["affiliation"],
-          "orcid": cr["orcid"], "keywords": z["keywords"], "license": z["license"]}
+          "orcid": cr["orcid"], "keywords": z["keywords"], "license": z["license"],
+          "dataset_doi": next(r["identifier"] for r in z["related_identifiers"] if r["scheme"] == "doi")}
     diff = [k for k in c if c[k] != zz[k]]
     if diff:
         raise SystemExit(f"CITATION.cff and .zenodo.json differ in: {diff}")
